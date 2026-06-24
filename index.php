@@ -60,9 +60,14 @@
 
             $(document).on('click', ".btn-editar", function() {
                 let row = $(this).closest("tr");
-                let id = row.children(".id").text();
+                let id = row.children(".id").text().trim();
+                let cor = row.children().eq(1).text().trim();
+                let tamanho = row.find('.badge-size').text().trim();
 
                 editing = id;
+
+                $('#Color-edit').val(cor);
+                $('#Tamanho-edit').val(tamanho);
             })
 
             $(document).on('click', '#EditarBtn', function() {
@@ -87,49 +92,7 @@
         });
     </script>
 
-    <style>
-        body {
-            background: #f8fafc;
-        }
-
-        .page-title {
-            font-weight: 700;
-            color: #1e293b;
-        }
-
-        .card-custom {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-        }
-
-        .table {
-            vertical-align: middle;
-        }
-
-        .table thead {
-            background: #0d6efd;
-            color: white;
-        }
-
-        .btn {
-            border-radius: 10px;
-        }
-
-        .modal-content {
-            border-radius: 20px;
-            border: none;
-        }
-
-        .form-control,
-        .form-select {
-            border-radius: 10px;
-        }
-
-        .badge-size {
-            font-size: .9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="p-4">
